@@ -1,6 +1,6 @@
 class Contact
 
-  attr_accessor :first_name, :last_name, :email, :note
+  attr_accessor :first_name, :last_name, :email, :note, :contacts
   attr_reader :id
 
   @@contacts = []
