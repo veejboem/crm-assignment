@@ -1,3 +1,5 @@
+require 'pry'
+
 class Contact
 
   attr_accessor :first_name, :last_name, :email, :note, :contacts
@@ -61,29 +63,25 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(attribute, value)
-    found = []
     @@contacts.each do |contact|
       if contact.send(attribute) == value
-        found << contact
-      else
+        return contact        
       end
     end
-    return found
   end
 
   # This method should delete all of the contacts
   def self.delete_all
-    remove = @@contacts.compact
-    puts remove.concat(@@contacts)
+    @@contacts.clear
   end
 
   def full_name
     "#{first_name} #{last_name}"
-
   end
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
+
   def delete
     @@contacts.delete(self)
   end
